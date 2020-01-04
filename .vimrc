@@ -8,7 +8,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
+
 Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'lervag/vimtex'
+Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 filetype plugin indent on
@@ -20,17 +27,26 @@ set softtabstop=2  " number of spaces inserted when editing
 set shiftwidth=2  " when using > and < to indent
 
 " UI
-syntax on  " switch on syntax highlighting
+syntax enable  " switch on syntax highlighting
 set termguicolors
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+"set t_Co=256
 set background=dark
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark="hard"
+"let g:solarized_termcolors=256
+
 colorscheme gruvbox
+"colorscheme elflord
+
 set number
 set showcmd  " show the last command in the bottom
 set wildmenu  " visual autocomplete for command menu
 set wildmode=full
 set showmatch  " highlight matching parentheses
 set nowrap  " by default don't wrap lines
+
+"set cursorline
 
 " FOLDING
 " set foldenable  " enable folding
@@ -50,7 +66,7 @@ nnoremap K :help <C-r><C-w><CR>
 
 " LEADER
 let mapleader=","
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>c :set list!<CR>
@@ -74,3 +90,20 @@ set timeoutlen=1000 ttimeoutlen=0  " no delay after hitting escape
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set visualbell  " disable those annoying beeps
 
+" VimTex
+let g:polyglot_disabled = ['latex']
+"let g:Tex_IgnoredWarnings
+let g:vimtex_quickfix_latexlog = {'default' : 0}
+"let g:Tex_IgnoredWarnings =
+"    \'Underfull'."\n".
+"    \'Overfull'."\n".
+"    \'specifier changed to'."\n".
+"    \'You have requested'."\n".
+"    \'Missing number, treated as zero.'."\n".
+"    \'There were undefined references'."\n".
+"    \'Citation %.%# undefined'."\n".
+"    \'Double space found.'."\n"
+"let g:Tex_IgnoreLevel = 8
+
+
+map <C-n> :NERDTreeToggle<CR>

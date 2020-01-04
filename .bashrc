@@ -118,3 +118,17 @@ fi
 
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# for mysql files
+export MYSQL_FILES_DIR=/var/lib/mysql-files/
+
+# aliases for mysql-server
+alias mystart='sudo systemctl start mysql'
+alias mystop='sudo systemctl stop mysql'
+alias mystatus='systemctl status mysql.service'
+
+# for react-scripts
+export BROWSER=google-chrome
+
+export EDITOR=vim
+

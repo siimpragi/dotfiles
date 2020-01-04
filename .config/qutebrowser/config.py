@@ -9,7 +9,8 @@ c.url.searchengines = {
     'wen': 'https://en.wikipedia.org/w/index.php?search={}',
     'wet': 'https://et.wikipedia.org/w/index.php?search={}',
     'yt': 'https://www.youtube.com/results?search_query={}',
-    'r': 'https://old.reddit.com/r/{}'
+    'r': 'https://old.reddit.com/r/{}',
+    'm': 'https://dev.mysql.com/doc/search/?d=201&p=1&q={}'
 }
 
 c.url.default_page = 'about:blank'
