@@ -6,6 +6,8 @@ c.url.searchengines = {
     'ies': 'https://eki.ee/dict/ies/?Q={}',
     'syn': 'https://eki.ee/dict/synonyymid/?Q={}',
     'ant': 'https://eki.ee/dict/antonyymid/?Q={}',
+    'ev': 'https://synaq.org/index.php?vaade=raamat&syna={}&saada.x=0&saada.y=0&suund=ev',
+    'vo': 'https://synaq.org/index.php?vaade=raamat&syna={}&saada.x=0&saada.y=0&suund=vo',
     'wen': 'https://en.wikipedia.org/w/index.php?search={}',
     'wet': 'https://et.wikipedia.org/w/index.php?search={}',
     'yt': 'https://www.youtube.com/results?search_query={}',

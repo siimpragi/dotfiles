@@ -12,7 +12,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
 Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
