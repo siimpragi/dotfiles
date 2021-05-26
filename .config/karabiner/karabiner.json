@@ -528,7 +528,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'iTerm.app'"
+                                        "shell_command": "open -a 'Terminal.app'"
                                     }
                                 ],
                                 "type": "basic"
@@ -570,7 +570,7 @@
                                         }
                                     },
                                     {
-                                        "shell_command": "open -a 'iTerm.app'"
+                                        "shell_command": "open -a 'Terminal.app'"
                                     }
                                 ],
                                 "type": "basic"
@@ -585,6 +585,69 @@
                                 ],
                                 "from": {
                                     "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Tweetbot.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "mandatory": []
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "o"
+                                        },
+                                        {
+                                            "key_code": "w"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "launcher_mode_v4",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "launcher_mode_v4",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "shell_command": "open -a 'Tweetbot.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "launcher_mode_v4",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
                                     "modifiers": {
                                         "mandatory": []
                                     }
@@ -606,7 +669,7 @@
                                             "key_code": "o"
                                         },
                                         {
-                                            "key_code": "w"
+                                            "key_code": "v"
                                         }
                                     ],
                                     "simultaneous_options": {
