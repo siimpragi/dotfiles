@@ -37,6 +37,9 @@ cask "netnewswire"
 cask "qbittorrent"
 cask "rectangle"
 cask "selfcontrol"
+cask "tweetbot"
 cask "visual-studio-code"
 cask "wireshark"
 mas "Bitwarden", id: 1352778147
+mas "DigiDoc4 Client", id: 1370791134
+mas "LimeChat", id: 414030210
