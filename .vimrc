@@ -8,10 +8,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'sheerun/vim-polyglot'
-Plug 'morhetz/gruvbox'
-"Plug 'lervag/vimtex'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'lervag/vimtex'
+Plug 'morhetz/gruvbox'
+"Plug 'neoclide/coc.nvim'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 filetype plugin indent on
@@ -28,9 +30,10 @@ set shiftwidth=2  " when using > and < to indent
 
 " UI
 syntax enable
-colorscheme gruvbox
+" let's make the bg match the terminal...
+autocmd ColorScheme * highlight Normal ctermbg=NONE
 set background=dark
-let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 set cursorline
 set number
@@ -41,20 +44,17 @@ set showmatch " highlight matching parentheses
 set nowrap    " by default don't wrap lines
 
 " MOVEMENT
-" make j and k work as expected on wrapped lines
-nnoremap j gj
-nnoremap k gk
 " quickly switch to the alternate buffer
-nnoremap <bs> <c-^>
+nnoremap <BS> <C-^>
 " quickly search vim's help for term under cursor
 nnoremap K :help <C-r><C-w><CR>
 
 " LEADER
-let mapleader=","
-nnoremap <leader>ev :e $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>c :set list!<CR>
+let mapleader = ","
+nnoremap <Leader>ev :e $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader><Space> :nohlsearch<CR>
+nnoremap <Leader>c :set list!<CR>
 
 " SEARCHING
 set incsearch " show matches while typing
@@ -74,22 +74,7 @@ set ttyfast " faster scrolling
 set autoindent " copy indent on current line when starting a new one
 set smartindent
 
-set scrolloff=999 " centers the cursor to the middle of the screen
+"set scrolloff=999 " centers the cursor to the middle of the screen
 set shortmess=aoOtI " avoid 'Hit Enter ...' messages
 set hidden " allow to switch from a modified buffer
-
-" VimTex
-"let g:polyglot_disabled = ['latex']
-"let g:Tex_IgnoredWarnings
-"let g:vimtex_quickfix_latexlog = {'default' : 0}
-"let g:Tex_IgnoredWarnings =
-"    \'Underfull'."\n".
-"    \'Overfull'."\n".
-"    \'specifier changed to'."\n".
-"    \'You have requested'."\n".
-"    \'Missing number, treated as zero.'."\n".
-"    \'There were undefined references'."\n".
-"    \'Citation %.%# undefined'."\n".
-"    \'Double space found.'."\n"
-"let g:Tex_IgnoreLevel = 8
 
