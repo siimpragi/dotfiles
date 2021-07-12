@@ -10,10 +10,12 @@ endif
 call plug#begin()
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 Plug 'morhetz/gruvbox'
-"Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 filetype plugin indent on
@@ -55,6 +57,8 @@ nnoremap <Leader>ev :e $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader><Space> :nohlsearch<CR>
 nnoremap <Leader>c :set list!<CR>
+nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 " SEARCHING
 set incsearch " show matches while typing
@@ -77,4 +81,24 @@ set smartindent
 "set scrolloff=999 " centers the cursor to the middle of the screen
 set shortmess=aoOtI " avoid 'Hit Enter ...' messages
 set hidden " allow to switch from a modified buffer
+
+" always show the current file (rel path)
+set statusline+=%f
+set laststatus=2
+
+" ignore case when searching
+set ignorecase
+
+" <EOL> -- preserve the situation from the original file
+set nofixendofline
+
+" https://jameschambers.co.uk/vim-typescript-slow
+" vim hangs for .ts files
+" don't use the 'old' regex engine
+set regexpengine=0
+
+" disable netrw's banner (press I to show)
+let g:netrw_banner=0
+" netrw tree style view
+" let g:netrw_liststyle=3
 
