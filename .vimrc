@@ -13,7 +13,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -101,4 +102,40 @@ set regexpengine=0
 let g:netrw_banner=0
 " netrw tree style view
 " let g:netrw_liststyle=3
+
+set spelllang=en
+" set spell
+
+" don't mess with my cursor position when switching between buffers!
+" https://vim.fandom.com/wiki/Avoid_scrolling_when_switch_buffers
+" Save current view settings on a per-window, per-buffer basis.
+function! AutoSaveWinView()
+  if !exists("w:SavedBufView")
+    let w:SavedBufView = {}
+  endif
+  let w:SavedBufView[bufnr("%")] = winsaveview()
+endfunction
+" Restore current view settings.
+function! AutoRestoreWinView()
+  let buf = bufnr("%")
+  if exists("w:SavedBufView") && has_key(w:SavedBufView, buf)
+    let v = winsaveview()
+    let atStartOfFile = v.lnum == 1 && v.col == 0
+    if atStartOfFile && !&diff
+      call winrestview(w:SavedBufView[buf])
+    endif
+    unlet w:SavedBufView[buf]
+  endif
+endfunction
+" When switching buffers, preserve window view.
+if v:version >= 700
+  autocmd BufLeave * call AutoSaveWinView()
+  autocmd BufEnter * call AutoRestoreWinView()
+endif
+
+" coc stuff
+" needs :CocRestart after changing
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver']
+" https://github.com/neoclide/coc-git
+" https://github.com/neoclide/coc-json
 
