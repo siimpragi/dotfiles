@@ -35,6 +35,11 @@ set shiftwidth=2  " when using > and < to indent
 syntax enable
 " let's make the bg match the terminal...
 autocmd ColorScheme * highlight Normal ctermbg=NONE
+" base default color changes
+hi Normal ctermbg=NONE
+" let g:gruvbox_filetype_hi_groups = 1
+" let g:gruvbox_plugin_hi_groups = 1
+" let g:gruvbox_transp_bg = 1
 set background=dark
 colorscheme gruvbox
 
