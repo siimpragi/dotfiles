@@ -12,8 +12,6 @@ brew "fzf"
 brew "gh"
 brew "htmlq"
 brew "jq"
-brew "jrnl"
-brew "lynx"
 brew "mas"
 brew "media-info"
 brew "node"
@@ -24,10 +22,6 @@ brew "tree"
 brew "watch"
 brew "youtube-dl"
 brew "zsh"
-cask "alacritty"
-cask "anki"
-cask "audacity"
-cask "cyberduck"
 cask "docker"
 cask "firefox"
 cask "gimp"
@@ -42,7 +36,6 @@ cask "libreoffice"
 cask "mactex-no-gui"
 cask "microsoft-teams"
 cask "netnewswire"
-cask "plex-media-server"
 cask "qbittorrent"
 cask "rectangle"
 cask "selfcontrol"
@@ -57,6 +50,5 @@ mas "DigiDoc4 Client", id: 1370791134
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "LimeChat", id: 414030210
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
